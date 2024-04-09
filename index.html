@@ -14,22 +14,29 @@
   <title>Frontend Mentor | E-commerce product page</title>
 
 </head>
-<body>
- <header>
-  <img class="menu-icon" alt="menu button" src="./assets/images/icon-menu.svg"</img>
-  <div class="sneakers-logo"></div>
-   <div class="accordion">
-      <link class="nav-link">Collections</link>
-      <link class="nav-link">Men</link>
-      <link class="nav-link">Women</link>
-      <link class="nav-link">About</link>
-      <link class="nav-link">Contact</link>
+<body class="flex-container">
+ <header class="flex-container">
+  <div class="flex-container header-box">
+    <i class="icon-icon-menu" id="nav-button"></i>
+    <img class="sneakers-logo" alt="logo" src="./assets/images/logo.svg"></img>
+     <nav class="nav-bar flex-container">
+        <i class="icon-icon-close nav-collapse"></i>
+        <a class="nav-link" href="#">Collections</a>
+        <a class="nav-link" href="#">Men</a>
+        <a class="nav-link" href="#">Women</a>
+        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#">Contact</a>
+     </nav>
+  </div>
+   <div class="flex-container header-box">
+     <i class="icon- shop-menu">cart</i>
+     <img class="avatar" src="./assets/images/image-avatar.png" alt="profile pic">
    </div>
  </header>
 
   <h1 class="company-name">Sneaker Company</h1>
   <h2 class="product-title">Fall Limited Edition Sneakers</h2>
-  <p class="product-description">
+  <p class="description">
       These low-profile sneakers are your perfect casual wear companion. Featuring a 
       durable rubber outer sole, they’ll withstand everything the weather can offer.
   </p>
