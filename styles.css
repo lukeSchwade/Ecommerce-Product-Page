@@ -1,17 +1,31 @@
+* {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  outline: none;
+}
+
 body {
   font-family: "Kumbh Sans";
-  overflow-x: hidden;
   flex-direction: column;
   font-size: 16px;
   margin: auto;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 header {
-  height: 100px;
+  max-height: 120px;
+  padding-top: 1em;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 p {
@@ -24,9 +38,23 @@ a {
   color: hsl(219, 9%, 45%);
 }
 
+button {
+  height: 4em;
+  color: white;
+  background-color: hsl(26, 100%, 55%);
+  border-radius: 20px;
+  border: none;
+  outline: 0;
+  position: relative;
+  transition: all 200ms;
+}
+
+button:active {
+  top: 2px;
+}
+
 .flex-container {
   display: flex;
-  outline: 1px greenyellow solid;
 }
 
 .header-box {
@@ -39,23 +67,138 @@ a {
 }
 
 .avatar {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
+}
+
+.shop-menu {
+  font-size: 20px;
+  padding: 16px;
+}
+
+#nav-button {
+  padding: 1em;
 }
 
 .nav-link {
   font-weight: 700;
-  margin: 1em;
+  padding: 1em;
+}
+
+.nav-link:hover {
+  background-color: hsl(223, 64%, 98%);
 }
 
 .sneakers-logo {
-  height: 1.5em;
+  max-height: 24px;
+  max-width: 170px;
+  width: auto;
+  height: auto;
   margin-right: 2em;
+}
+
+.nav-collapse {
+  display: none;
+  padding: 1em;
+}
+
+.main-container {
+  flex-direction: column;
+}
+
+.infotainer {
+  flex-direction: column;
+  margin: 0 1em;
+}
+
+.main-image {
+  width: 100vw;
+  height: auto;
+  max-width: 400px;
+  max-height: 400px;
+  margin: auto;
+}
+
+.company-name {
+  color: hsl(26, 100%, 55%);
+  font-size: 16px;
+  font-weight: 700;
+  margin: 1em 0;
+}
+
+.product-title {
+  font-size: 24px;
+}
+
+.prices-container {
+  gap: 1em;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.discount {
+  color: hsl(26, 100%, 55%);
+  background-color: hsl(25, 100%, 94%);
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+
+.original-price {
+  font-size: 20px;
+  color: hsl(220, 14%, 75%);
+  text-decoration: line-through;
+  margin-left: auto;
+}
+
+#cart-icon {
+  color: white;
+}
+
+.shop-bottom-container {
+  flex-wrap: wrap;
+  margin: 1em;
+  gap: 1em;
+}
+
+.quantity-container {
+  margin: inherit auto;
+  flex-basis: 200px;
+  justify-content: space-between;
+  background-color: hsl(223, 64%, 98%);
+  border-radius: 20px;
+  align-items: center;
+  padding: 10px;
+  flex-grow: 1;
+  flex-shrink: 2;
+}
+
+.cart-btn {
+  flex-basis: 200px;
+  flex-grow: 2;
+}
+
+#minus-buton, #plus-button {
+  height: 20px;
+  width: 20px;
+}
+
+#minus-button {
+  font-size: 6px;
 }
 
 .hide {
   opacity: 0;
   visibility: hidden;
+}
+
+.selected-image {
+  outline: 0 hsl(26, 100%, 55%) solid;
 }
 
 @media screen and (max-width: 1024px) {
@@ -64,17 +207,46 @@ a {
     width: 12em;
     position: absolute;
     top: 0;
-    padding-top: 70px;
+    padding-top: 2em;
   }
   .nav-bar::backdrop {
     background-color: black;
     opacity: 75%;
   }
   .nav-collapse {
-    margin: 1em;
+    display: block;
   }
 }
 @media only screen and (min-width: 767px) {
+  body {
+    padding: 0 2em;
+  }
+  #nav-button {
+    display: none;
+  }
+  .avatar {
+    height: 60px;
+    width: 60px;
+  }
+  .shop-menu {
+    color: hsl(219, 9%, 45%);
+    font-size: 30px;
+    margin: 16px;
+  }
+  .main-container {
+    flex-direction: row;
+    gap: 5em;
+  }
+  .main-image {
+    border-radius: 20px;
+    margin: 1em;
+  }
+  .infotainer {
+    flex-basis: 40%;
+    flex-grow: 1;
+  }
+}
+@media only screen and (min-width: 1024px) {
   .nav-link {
     font-size: 16px;
     color: hsl(219, 9%, 45%);
@@ -83,12 +255,16 @@ a {
     position: static;
     flex-direction: row;
   }
-  #nav-button {
-    display: none;
-  }
   .avatar {
     height: 70px;
     width: 70px;
+  }
+  .product-title {
+    font-size: 36px;
+    margin: 24px 0;
+  }
+  .original-price {
+    margin-left: 2em;
   }
 }
 

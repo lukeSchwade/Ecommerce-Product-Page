@@ -19,7 +19,7 @@
   <div class="flex-container header-box">
     <i class="icon-icon-menu" id="nav-button"></i>
     <img class="sneakers-logo" alt="logo" src="./assets/images/logo.svg"></img>
-     <nav class="nav-bar flex-container">
+     <nav class="nav-bar flex-container hide">
         <i class="icon-icon-close nav-collapse"></i>
         <a class="nav-link" href="#">Collections</a>
         <a class="nav-link" href="#">Men</a>
@@ -29,27 +29,50 @@
      </nav>
   </div>
    <div class="flex-container header-box">
-     <i class="icon- shop-menu">cart</i>
+     <i class="icon-icon-cart shop-menu"></i>
      <img class="avatar" src="./assets/images/image-avatar.png" alt="profile pic">
    </div>
  </header>
+ <hr class="divider">
+<main>
+  <div class="main-container flex-container">
+    <div class="gallery-wrapper flex-container">
+      <img class="main-image"src="./assets/images/image-product-1.jpg" alt="product image" width="400" height="400">
+      <div class="thumbnail-wrapper flex-container">
 
-  <h1 class="company-name">Sneaker Company</h1>
-  <h2 class="product-title">Fall Limited Edition Sneakers</h2>
-  <p class="description">
-      These low-profile sneakers are your perfect casual wear companion. Featuring a 
-      durable rubber outer sole, they’ll withstand everything the weather can offer.
-  </p>
+      </div>
+    </div>
 
-  <div class="prices-container flex-container">
-    <div class="price">$125.00</div>  
-    <div class="discount">50%</div>
-    <div class="original-price">$250.00</div>
-  </div>
+    <div class="infotainer">
+          <h1 class="company-name">Sneaker Company</h1>
+          <h2 class="product-title">Fall Limited Edition Sneakers</h2>
+          <p class="description">
+              These low-profile sneakers are your perfect casual wear companion. Featuring a 
+              durable rubber outer sole, they’ll withstand everything the weather can offer.
+          </p>
+        
+          <div class="prices-container flex-container">
+            <div class="price">$125.00</div>  
+            <div class="discount">50%</div>
+            <div class="original-price">$250.00</div>
+          </div>
+    
+          <div class="shop-bottom-container flex-container">
+              <div class="quantity-container flex-container">
+                <div id="minus-button">
+                    <span class="icon-icon-minus minus"></span>
+                </div>
+                <div class="quantity">0</div>
+                <div id="plus-button">
+                    <span class="icon-icon-plus plus" ></span>
+                </div>
+              </div>
 
-  <div class="quantity-container flex-container">0</div>
-  <button class="cart-btn"><i class="icon- cart-icon">cart</i>Add to cart</button>
-
+            <button class="cart-btn"><i class="icon-icon-cart" id="cart-icon"></i>Add to cart</button>
+          </div>
+      </div>
+  </div> 
+</main>
   <script src="assets/icons/liga.js"></script>
   <script src="scripts.js"></script>
 </body>
