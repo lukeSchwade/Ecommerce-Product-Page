@@ -46,19 +46,9 @@ a {
 }
 
 button {
-    height: 4em;
-    color: white;
-    background-color: $orange;
-    border-radius: 10px;
-    border: none;
-    outline: 0;
-    position: relative;
-    transition: all 200ms;
     cursor: pointer;
 }
-button:active {
-    top: 2px;
-}
+
 .flex-container {
     display: flex;
 }
@@ -190,7 +180,18 @@ button:active {
     flex-grow: 1.3;
     height: 60px;
     font-weight: 700;
-
+        height: 4em;
+        color: white;
+        background-color: $orange;
+        border-radius: 10px;
+        border: none;
+        outline: 0;
+        position: relative;
+        transition: all 200ms;
+        cursor: pointer;
+}
+.cart-btn:active {
+    top: 2px;
 }
 
 #minus-button, #plus-button{
