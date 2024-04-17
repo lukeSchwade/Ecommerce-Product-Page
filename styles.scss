@@ -49,11 +49,12 @@ button {
     height: 4em;
     color: white;
     background-color: $orange;
-    border-radius: 20px;
+    border-radius: 10px;
     border: none;
     outline: 0;
     position: relative;
     transition: all 200ms;
+    cursor: pointer;
 }
 button:active {
     top: 2px;
@@ -78,8 +79,10 @@ button:active {
     font-size: 20px;
     padding: 16px;
 }
-#nav-button {
-    padding: 1em;
+#open-nav-btn {
+
+    overflow: hidden;
+    margin: 1em;
 }
 .nav-link {
     font-weight: 700;
@@ -98,7 +101,7 @@ button:active {
 
 .nav-collapse {
     display: none;
-    padding: 1em;
+
 }
 
 .main-container {
@@ -108,12 +111,13 @@ button:active {
 .main-image {
     width: inherit;
     height: auto;
-    max-width: 550px;
-    max-height: 550px;
+    max-width: 500px;
+    max-height: 500px;
 }
 .gallery-wrapper {
     flex-direction: column;
     height: auto;
+    max-width: 500px;
 }
 .thumbnail-wrapper {
     flex-direction: row;
@@ -159,6 +163,7 @@ button:active {
 
 #cart-icon {
     color: white;
+    margin-right: 1em;
 }
 .shop-bottom-container {
     overflow: hidden;
@@ -173,7 +178,7 @@ button:active {
     flex-basis: 100px;
     justify-content: space-between;
     background-color: $light-grayish-blue;
-    border-radius: 20px;
+    border-radius: 10px;
     align-items: center;
     height: 60px;
     padding: 10px;
@@ -184,6 +189,7 @@ button:active {
     flex-basis: 150px;
     flex-grow: 1.3;
     height: 60px;
+    font-weight: 700;
 
 }
 
@@ -202,26 +208,22 @@ button:active {
 
 }
 
+#minus-button, #plus-button, .avatar, .shop-menu, .thumbnail {
+    cursor: pointer;
+}
+
 
 .hide {
     opacity: 0;
     visibility: hidden;
 }
 
+
 .selected-image {
     opacity: 1;
+    border: 3px solid $orange;
 }
 
-.selected-image::before {
-    content: "";
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border: 5px solid $orange;
-    opacity: 1;
-}
 // MOBILE ONLY
 @media screen and (max-width:1023px){
     .nav-bar {
@@ -231,6 +233,7 @@ button:active {
         top: 0px;
         padding-top: 1.5em;
         z-index: 3;
+        transition: 0.3s;
     }
     .nav-bar::backdrop{
         background-color: black;
@@ -238,11 +241,15 @@ button:active {
     }
     .nav-collapse {
         display: block;
+        padding: 1em;
     }
     .main-image {
-        max-width: 400px;
+        max-width: 100vw;
         max-height: 400px;
         margin: auto;
+    }
+    .hidden-nav {
+        width: 0 !important;
     }
 }
 
@@ -279,6 +286,7 @@ button:active {
         max-width: 1200px;
     }
     .main-container {
+        margin-top: 3em;
         flex-direction: row;
         gap: 5em;
         padding:1em;

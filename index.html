@@ -17,10 +17,14 @@
 <body class="flex-container">
  <header class="flex-container">
   <div class="flex-container header-box">
-    <i class="icon-icon-menu" id="nav-button"></i>
+    <div id="open-nav-btn" onclick="openNav()">
+      <i class="icon-icon-menu" id="nav-button"></i>
+    </div>
     <img class="sneakers-logo" alt="logo" src="./assets/images/logo.svg"></img>
-     <nav class="nav-bar flex-container">
-        <i class="icon-icon-close nav-collapse"></i>
+     <nav class="nav-bar flex-container hidden-nav" id="side-nav-bar">
+        <div id="close-nav-btn" onclick="closeNav()">
+          <i class="icon-icon-close nav-collapse"></i>
+        </div>
         <a class="nav-link" href="#">Collections</a>
         <a class="nav-link" href="#">Men</a>
         <a class="nav-link" href="#">Women</a>
@@ -66,7 +70,7 @@
                   <img class="plus-minus-img"src="./assets/images/icon-minus.svg" alt="minus">
                     <!-- <span class="icon-icon-minus minus"></span> -->
                 </div>
-                <div class="quantity">0</div>
+                <div class="quantity" id="shop-quantity">0</div>
                 <div id="plus-button">
                   <img class="plus-minus-img" src="./assets/images/icon-plus.svg" alt="add">
                     <!-- <span class="icon-icon-plus plus" ></span> -->
@@ -79,6 +83,6 @@
   </div> 
 </main>
   <script src="assets/icons/liga.js"></script>
-  <script src="scripts.js"></script>
+  <script src="scripts.js" defer></script>
 </body>
 </html>
