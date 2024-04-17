@@ -47,22 +47,56 @@ const getCurrentTotal = () => {
 }
 const addCartBtn = document.querySelector(".cart-btn");
 
-addCartBtn.addEventListener("click", () => {
+addCartBtn.addEventListener("click", () => {    
+    //move the number of items to cart
+    addToCart(parseInt(currentOrderQuantity.textContent), itemNum);
+    document.querySelector("button.shop-menu-btn").focus();
     //reset cart counter
     resetQuantity();
-    //move the number of items to cart
-    addToCart()
-    //make the cart icon shake
+    //make the cart icon shake TODO
     animateCart();
 });
+
+
 
 const resetQuantity = () => {
     currentOrderQuantity.textContent = "0";
 }
-const addToCart = () => {
+
+//Add an entry to the cart
+const addToCart = (quantity, itemNum) => {
+    //Create Element
+    createElement(quantity, itemNum));
+    populateCart(quantity);
+}
+
+//Pass number of items and the product #
+const populateCart = (numItems) => {
 
 }
 
+const createElement = (quantity, itemNum) => {
+
+}
+let cartEmpty = document.querySelector(".cart-empty");
+const checkCartEmpty = () => {
+    if (cartQuantity == 0 && cartEmpty.classList.contains("hide")) {
+        cartEmpty.classList.toggle("hide");
+    } else {
+        
+    }
+}
 const animateCart = () => {
 
+}
+
+//Creating a separate object for each product in cart
+class CartEntry {
+    //default constructor
+    constructor(product)
+}
+
+const products = {
+    id: 1,
+    cost: 200,
 }

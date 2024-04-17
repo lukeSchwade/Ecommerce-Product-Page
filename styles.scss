@@ -92,7 +92,7 @@ button {
     box-shadow: 0 50px 100px -20px rgba(0, 0, 0, .12),
     0 30px 60px -30px rgba(0, 0, 0, .15);
     z-index: 2;
-    animation: fade-in;
+    animation: 200ms ease-in-out 0ms 1 normal none running fadeIn;
 }
 
 .dropdown-divider {
@@ -106,6 +106,19 @@ button {
 .header-box>div:hover .dropdown-cart, 
 .header-box>div:focus-within .dropdown-cart {
     display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.99) 
+        translateY(-0.7em);
+        transform-origin: top;
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 .avatar {
@@ -247,9 +260,6 @@ button {
     height: auto;
 }
 
-.cart-tray{
-
-}
 
 #minus-button, #plus-button, .avatar, .shop-menu, .thumbnail {
     cursor: pointer;
@@ -258,7 +268,7 @@ button {
 
 .hide {
     opacity: 0;
-    visibility: hidden;
+    display: none;
 }
 
 
