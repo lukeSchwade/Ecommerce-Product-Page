@@ -64,11 +64,11 @@ const resetQuantity = () => {
 }
 
 //Add an entry to the cart
-const addToCart = (quantity, itemNum) => {
-    //Create Element
-    createElement(quantity, itemNum));
-    populateCart(quantity);
-}
+// const addToCart = (quantity, itemNum) => {
+//     //Create Element
+//     createElement(quantity, itemNum));
+//     populateCart(quantity);
+// }
 
 //Pass number of items and the product #
 const populateCart = (numItems) => {
@@ -91,12 +91,12 @@ const animateCart = () => {
 }
 
 //Creating a separate object for each product in cart
-class CartEntry {
-    //default constructor
-    constructor(product)
-}
+// class CartEntry {
+//     //default constructor
+//     constructor(product)
+// }
 
-const products = {
-    id: 1,
-    cost: 200,
-}
+// const products = {
+//     id: 1,
+//     cost: 200,
+// }
