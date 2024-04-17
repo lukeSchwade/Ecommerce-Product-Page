@@ -61,16 +61,58 @@ button {
     flex-direction: column;
     background-color: white;
 }
-.avatar {
-    height: 30px;
-    width: 30px;
+
+.shop-menu-btn {
+    overflow: hidden;
+    outline: none;
+    border: none;
+    background-color: white;
 }
+
 .shop-menu {
     font-size: 20px;
     padding: 16px;
 }
-#open-nav-btn {
 
+.dropdown-wrapper {
+    overflow: visible;
+    position: absolute;
+    top: 50px;
+    padding-top: 2em;
+    padding-right: 1em;
+    
+}
+
+.dropdown-cart {
+    display: none;
+    overflow: visible;
+    padding: 1em;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 50px 100px -20px rgba(0, 0, 0, .12),
+    0 30px 60px -30px rgba(0, 0, 0, .15);
+    z-index: 2;
+    animation: fade-in;
+}
+
+.dropdown-divider {
+    border-top: 1px solid $grayish-blue;
+    width: inherit;
+    max-width: inherit;
+    margin-left: -1em;
+}
+
+//Animation for hiding cart 
+.header-box>div:hover .dropdown-cart, 
+.header-box>div:focus-within .dropdown-cart {
+    display: block;
+}
+
+.avatar {
+    height: 30px;
+    width: 30px;
+}
+#open-nav-btn {
     overflow: hidden;
     margin: 1em;
 }
@@ -133,7 +175,7 @@ button {
     align-items: flex-end;
     flex-wrap: wrap;
 }
-.price {
+.price, .cart-title {
     font-size: 24px;
     font-weight: 700;
 }
@@ -180,15 +222,15 @@ button {
     flex-grow: 1.3;
     height: 60px;
     font-weight: 700;
-        height: 4em;
-        color: white;
-        background-color: $orange;
-        border-radius: 10px;
-        border: none;
-        outline: 0;
-        position: relative;
-        transition: all 200ms;
-        cursor: pointer;
+    height: 4em;
+    color: white;
+    background-color: $orange;
+    border-radius: 10px;
+    border: none;
+    outline: 0;
+    position: relative;
+    transition: all 200ms;
+    cursor: pointer;
 }
 .cart-btn:active {
     top: 2px;
@@ -227,6 +269,9 @@ button {
 
 // MOBILE ONLY
 @media screen and (max-width:1023px){
+    body {
+        padding: 0;
+    }
     .nav-bar {
         height: 100vh;
         width: 12em;
@@ -251,6 +296,16 @@ button {
     }
     .hidden-nav {
         width: 0 !important;
+    }
+    .dropdown-cart {
+        width: 500px;
+        max-width: 90vw;
+
+    }
+    .dropdown-wrapper {
+        top: 4em;
+        left: 5vw;
+        padding-top: 2em;
     }
 }
 
@@ -340,7 +395,13 @@ button {
         border-top: 1px solid $grayish-blue;
         margin: auto;
         width: 1200px;
-
+    }
+    .dropdown-cart {
+        width: 24em;
+        max-width: 24em;
+    }
+    .dropdown-wrapper {
+        right:150px;
     }
     
 }

@@ -32,8 +32,26 @@
         <a class="nav-link" href="#">Contact</a>
      </nav>
   </div>
-   <div class="flex-container header-box">
-     <i class="icon-icon-cart shop-menu"></i>
+  <div class="flex-container header-box">
+    <div class="cart-container">
+      <button class="shop-menu-btn"> 
+        <span style="display: none;">Shop</span>
+        <i class="icon-icon-cart shop-menu"></i>
+      </button>
+      <div class="dropdown-wrapper">
+        <div class="dropdown dropdown-cart">
+          <div class="cart-title">
+            Cart
+          </div>
+          <hr class="dropdown-divider">
+          <p class="cart-empty">Your Cart is Empty</p>
+          <ul class="cart-list">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
      <img class="avatar" src="./assets/images/image-avatar.png" alt="profile pic">
    </div>
  </header>

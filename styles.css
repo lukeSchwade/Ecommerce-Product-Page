@@ -39,19 +39,7 @@ a {
 }
 
 button {
-  height: 4em;
-  color: white;
-  background-color: hsl(26, 100%, 55%);
-  border-radius: 10px;
-  border: none;
-  outline: 0;
-  position: relative;
-  transition: all 200ms;
   cursor: pointer;
-}
-
-button:active {
-  top: 2px;
 }
 
 .flex-container {
@@ -67,14 +55,52 @@ button:active {
   background-color: white;
 }
 
-.avatar {
-  height: 30px;
-  width: 30px;
+.shop-menu-btn {
+  overflow: hidden;
+  outline: none;
+  border: none;
+  background-color: white;
 }
 
 .shop-menu {
   font-size: 20px;
   padding: 16px;
+}
+
+.dropdown-wrapper {
+  overflow: visible;
+  position: absolute;
+  top: 50px;
+  padding-top: 2em;
+  padding-right: 1em;
+}
+
+.dropdown-cart {
+  display: none;
+  overflow: visible;
+  padding: 1em;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.12), 0 30px 60px -30px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  animation: fade-in;
+}
+
+.dropdown-divider {
+  border-top: 1px solid hsl(220, 14%, 75%);
+  width: inherit;
+  max-width: inherit;
+  margin-left: -1em;
+}
+
+.header-box > div:hover .dropdown-cart,
+.header-box > div:focus-within .dropdown-cart {
+  display: block;
+}
+
+.avatar {
+  height: 30px;
+  width: 30px;
 }
 
 #open-nav-btn {
@@ -147,7 +173,7 @@ button:active {
   flex-wrap: wrap;
 }
 
-.price {
+.price, .cart-title {
   font-size: 24px;
   font-weight: 700;
 }
@@ -198,6 +224,19 @@ button:active {
   flex-grow: 1.3;
   height: 60px;
   font-weight: 700;
+  height: 4em;
+  color: white;
+  background-color: hsl(26, 100%, 55%);
+  border-radius: 10px;
+  border: none;
+  outline: 0;
+  position: relative;
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+.cart-btn:active {
+  top: 2px;
 }
 
 #minus-button, #plus-button {
@@ -227,6 +266,9 @@ button:active {
 }
 
 @media screen and (max-width: 1023px) {
+  body {
+    padding: 0;
+  }
   .nav-bar {
     height: 100vh;
     width: 12em;
@@ -251,6 +293,15 @@ button:active {
   }
   .hidden-nav {
     width: 0 !important;
+  }
+  .dropdown-cart {
+    width: 500px;
+    max-width: 90vw;
+  }
+  .dropdown-wrapper {
+    top: 4em;
+    left: 5vw;
+    padding-top: 2em;
   }
 }
 @media only screen and (min-width: 767px) {
@@ -331,6 +382,13 @@ button:active {
     border-top: 1px solid hsl(220, 14%, 75%);
     margin: auto;
     width: 1200px;
+  }
+  .dropdown-cart {
+    width: 24em;
+    max-width: 24em;
+  }
+  .dropdown-wrapper {
+    right: 150px;
   }
 }
 
