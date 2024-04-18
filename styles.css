@@ -139,6 +139,7 @@ ul {
   position: relative;
   transition: all 200ms;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .cart-checkout-btn:active {
@@ -148,6 +149,8 @@ ul {
 .cart-checkout-btn-wrapper {
   width: 100%;
   margin: 0.5em 0;
+  overflow: hidden;
+  padding: 8px;
 }
 
 .header-box > div:hover .dropdown-cart,
