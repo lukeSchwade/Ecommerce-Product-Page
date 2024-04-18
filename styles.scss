@@ -49,6 +49,9 @@ button {
     cursor: pointer;
 }
 
+ul {
+    padding-left: 0;
+}
 .flex-container {
     display: flex;
 }
@@ -80,7 +83,12 @@ button {
     top: 50px;
     padding-top: 2em;
     padding-right: 1em;
+    display: flex;
     
+}
+.dropdown-flex-wrapper {
+    flex-direction: column;
+    align-items: center;
 }
 
 .dropdown-cart {
@@ -97,11 +105,56 @@ button {
 
 .dropdown-divider {
     border-top: 1px solid $grayish-blue;
-    width: inherit;
-    max-width: inherit;
+    width: 110%;
+    max-width: 110%;
     margin-left: -1em;
 }
 
+.cart-thumbnail{
+    width: 18%;
+    height: 18%;
+    border-radius: 4px;
+}
+
+.cart-text-container {
+    margin: 0 1em;    
+}
+
+
+.cart-product-title {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.cart-final-price{
+    margin-left: 1em;
+    font-weight: 700;
+}
+.cart-delete-btn{
+    object-fit: contain;
+}
+.cart-checkout-btn{
+    height: 60px;
+    width: 100%;
+    font-weight: 700;
+    color: white;
+    background-color: $orange;
+    border-radius: 10px;
+    border: none;
+    outline: 0;
+    position: relative;
+    transition: all 200ms;
+    cursor: pointer;
+}
+.cart-checkout-btn:active {
+top: 2px;
+}
+
+.cart-checkout-btn-wrapper{
+    width: 100%;
+    margin: 0.5em 0;
+
+}
 //Animation for hiding cart 
 .header-box>div:hover .dropdown-cart, 
 .header-box>div:focus-within .dropdown-cart {
@@ -228,7 +281,6 @@ button {
     height: 60px;
     padding: 10px;
     flex-grow: 1;
-
 }
 .cart-btn{
     flex-basis: 150px;
@@ -249,6 +301,7 @@ button {
     top: 2px;
 }
 
+
 #minus-button, #plus-button{
     overflow: hidden;
     height: 20px;
@@ -261,7 +314,7 @@ button {
 }
 
 
-#minus-button, #plus-button, .avatar, .shop-menu, .thumbnail {
+#minus-button, #plus-button, .avatar, .shop-menu, .thumbnail, .cart-delete-btn {
     cursor: pointer;
 }
 

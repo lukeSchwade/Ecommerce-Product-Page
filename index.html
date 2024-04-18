@@ -40,19 +40,27 @@
       </button>
       <div class="dropdown-wrapper">
         <div class="dropdown dropdown-cart">
-          <div class="cart-title">
-            Cart
+          <div class="dropdown-flex-wrapper flex-container">
+              <div class="cart-title">
+                Cart
+              </div>
+              <hr class="dropdown-divider">
+              <p class="cart-empty">Your Cart is Empty</p>
+              <ul id="cart-list">
+                <li class="flex-container cart-entry">
+                  <img class="cart-thumbnail" src="./assets/images/image-product-1-thumbnail.jpg" alt="item">
+                  <div class="cart-text-container">
+                    <div class="cart-product-title">Product Name Product Name</div>
+                    <div>
+                      $
+                      <span class="item-price">000.00</span> x <span class="quantity">3</span><span class="cart-final-price">$000.00</span>
+                    </div>
+                  </div>
+                  <img class="cart-delete-btn"src="./assets/images/icon-delete.svg" alt="delete">
+                </li>
+              </ul>
+              <div class="cart-checkout-btn-wrapper"><button class="cart-checkout-btn">Checkout</button></div>
           </div>
-          <hr class="dropdown-divider">
-          
-          <p class="cart-empty">Your Cart is Empty</p>
-          <ul id="cart-list">
-            <li class="flex-container">
-              <img class="cart thumbnail" src="./assets/images/image-product-1-thumbnail.jpg" alt="item">
-              <p> </p>
-
-            </li>
-          </ul>
         </div>
       </div>
     </div>
