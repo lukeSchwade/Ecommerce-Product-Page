@@ -49,11 +49,12 @@ const addCartBtn = document.querySelector(".cart-btn");
 
 addCartBtn.addEventListener("click", () => {    
     //move the number of items to cart
-    addToCart(parseInt(currentOrderQuantity.textContent), itemNum);
+    addToCart(parseInt(currentOrderQuantity.textContent));
     document.querySelector("button.shop-menu-btn").focus();
     //reset cart counter
     resetQuantity();
     //make the cart icon shake TODO
+    document.querySelector("button.shop-menu-btn").focus();
     animateCart();
 });
 
@@ -64,11 +65,11 @@ const resetQuantity = () => {
 }
 
 //Add an entry to the cart
-// const addToCart = (quantity, itemNum) => {
-//     //Create Element
-//     createElement(quantity, itemNum));
-//     populateCart(quantity);
-// }
+const addToCart = (quantity, itemNum) => {
+    //Create Element
+    //createElement(quantity, itemNum));
+    populateCart(quantity);
+}
 
 //Pass number of items and the product #
 const populateCart = (numItems) => {
@@ -78,14 +79,30 @@ const populateCart = (numItems) => {
 const createElement = (quantity, itemNum) => {
 
 }
-let cartEmpty = document.querySelector(".cart-empty");
+const cartEmpty = document.querySelector(".cart-empty");
+const cartList = document.getElementById("cart-list");
+
+//Run whenever user views the cart
+const shopCart = document.querySelector("button.shop-menu-btn");
+shopCart.addEventListener("focus", () =>{
+    checkCartEmpty();
+});
+
+shopCart.addEventListener("mouseover", () =>{
+    checkCartEmpty()
+});
+
 const checkCartEmpty = () => {
-    if (cartQuantity == 0 && cartEmpty.classList.contains("hide")) {
-        cartEmpty.classList.toggle("hide");
-    } else {
-        
+    console.log("checkcartEmpty");
+    // if cart is empty and has the tag, remove hidden tag
+    if (cartList.childElementCount == 0 && cartEmpty.classList.contains("hide")) {
+        cartEmpty.classList.remove("hide");
+    } else if (cartList.childElementCount > 0 && !cartEmpty.classList.contains("hide")){
+        //else unhide it
+        cartEmpty.classList.add("hide");
     }
-}
+};
+
 const animateCart = () => {
 
 }
