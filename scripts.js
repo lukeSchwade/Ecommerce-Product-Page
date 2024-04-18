@@ -79,6 +79,7 @@ const populateCart = (numItems) => {
 const createElement = (quantity, itemNum) => {
 
 }
+const cartCheckoutBtn = document.querySelector(".cart-checkout-btn")
 const cartEmpty = document.querySelector(".cart-empty");
 const cartList = document.getElementById("cart-list");
 
@@ -94,12 +95,15 @@ shopCart.addEventListener("mouseover", () =>{
 
 const checkCartEmpty = () => {
     console.log("checkcartEmpty");
-    // if cart is empty and has the tag, remove hidden tag
+    // if cart is empty and has the tag, remove hidden tag from 'cart empty' msg
+    //and hide checkout button
     if (cartList.childElementCount == 0 && cartEmpty.classList.contains("hide")) {
         cartEmpty.classList.remove("hide");
+        cartCheckoutBtn.classList.add("hide");
     } else if (cartList.childElementCount > 0 && !cartEmpty.classList.contains("hide")){
         //else unhide it
         cartEmpty.classList.add("hide");
+        cartCheckoutBtn.classList.remove("hide");
     }
 };
 
