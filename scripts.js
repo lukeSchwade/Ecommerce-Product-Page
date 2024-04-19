@@ -55,7 +55,7 @@ addCartBtn.addEventListener("click", () => {
     animateCart();
 });
 
-const cartCheckoutBtn = document.querySelector(".cart-checkout-btn")
+const cartCheckoutBtnWrapper = document.querySelector(".cart-checkout-btn-wrapper");
 const cartEmpty = document.querySelector(".cart-empty");
 const cartList = document.getElementById("cart-list");
 
@@ -74,11 +74,13 @@ const checkCartEmpty = () => {
     //and hide checkout button
     if (cartList.childElementCount == 0 && cartEmpty.classList.contains("hide")) {
         cartEmpty.classList.remove("hide");
-        cartCheckoutBtn.classList.add("hide");
+        cartCheckoutBtnWrapper.classList.add("hide");
     } else if (cartList.childElementCount > 0 && !cartEmpty.classList.contains("hide")){
         //else unhide it
         cartEmpty.classList.add("hide");
-        cartCheckoutBtn.classList.remove("hide");
+        cartCheckoutBtnWrapper.classList.remove("hide");
+    } else if (cartList.childElementCount == 0){
+        cartCheckoutBtnWrapper.classList.add("hide");
     }
 };
 
