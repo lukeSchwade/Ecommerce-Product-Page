@@ -18,14 +18,13 @@ const openNav = () => {
     sideNav.classList.remove("hidden-nav");
 }
 
-
+//Functionality for increasing number of items to add to cart
 const minusBtn = document.querySelector("#minus-button");
 const plusBtn = document.querySelector("#plus-button");
-
 const currentOrderQuantity = document.getElementById("shop-quantity");
 
 minusBtn.addEventListener("click", () => {
-    //filter negative numbers
+    //do not allow negative numbers
     let currentTotal = getCurrentTotal();
     if (currentTotal > 0) {
         updateQuantity (-1, currentTotal);
@@ -43,52 +42,28 @@ const updateQuantity = (input, currentTotal) => {
 }
 const getCurrentTotal = () => {
     return parseInt(currentOrderQuantity.textContent);
-
 }
 const addCartBtn = document.querySelector(".cart-btn");
 
 addCartBtn.addEventListener("click", () => {    
     //move the number of items to cart
     addToCart(parseInt(currentOrderQuantity.textContent));
-    document.querySelector("button.shop-menu-btn").focus();
     //reset cart counter
-    resetQuantity();
-    //make the cart icon shake TODO
+    currentOrderQuantity.textContent = "0";
+    //make the cart icon shake and open Cart TODO
     document.querySelector("button.shop-menu-btn").focus();
     animateCart();
 });
 
-
-
-const resetQuantity = () => {
-    currentOrderQuantity.textContent = "0";
-}
-
-//Add an entry to the cart
-const addToCart = (quantity, itemNum) => {
-    //Create Element
-    //createElement(quantity, itemNum));
-    populateCart(quantity);
-}
-
-//Pass number of items and the product #
-const populateCart = (numItems) => {
-
-}
-
-const createElement = (quantity, itemNum) => {
-
-}
 const cartCheckoutBtn = document.querySelector(".cart-checkout-btn")
 const cartEmpty = document.querySelector(".cart-empty");
 const cartList = document.getElementById("cart-list");
 
-//Run whenever user views the cart
+//Update cart entries whenever user opens or views the cart
 const shopCart = document.querySelector("button.shop-menu-btn");
 shopCart.addEventListener("focus", () =>{
     checkCartEmpty();
 });
-
 shopCart.addEventListener("mouseover", () =>{
     checkCartEmpty()
 });
@@ -108,16 +83,91 @@ const checkCartEmpty = () => {
 };
 
 const animateCart = () => {
-
+//TODO
 }
 
-//Creating a separate object for each product in cart
-// class CartEntry {
-//     //default constructor
-//     constructor(product)
-// }
 
-// const products = {
-//     id: 1,
-//     cost: 200,
-// }
+const removeDollarSignAndMakeNumber = (input) => {
+    //Convert to String (just in case)
+    //This doesnt work in countries where currency sign is a suffix
+    return parseFloat(input.substring(1));
+}
+//Add an entry to the cart
+const addToCart = (quantity, itemNum) => {
+
+}
+//Map of Cart Entries and associated entry number to keep track of them
+const cartEntries = new Map();
+
+//Creating a separate object for each product in cart
+class cartEntry {
+    //default constructor
+    //Creates all necessary elements for a cart entry.
+    constructor(entry){
+        //Set Entry number
+        this.entryNumber = entry;
+        //Create and store list tag
+        this.container = document.createElement("li");
+        //Create Product Thumbnail
+        this.productThumbnail = document.createElement("img");
+        //Create Cart Container
+        this.textContainer = document.createElement("div");
+        //Create Product title
+        this.productTitle = document.createElement("div");
+        // Create Div
+        this.priceContentDiv = document.createElement("div");
+        //create Price
+        this.price = document.createElement("span");
+        //create quantity Span
+        this.quantity = document.createElement("span");
+        //Create final price
+        this.finalPrice = document.createElement("span");
+        //create Delete Entry Button and add eventListener to it
+        this.deleteButton = document.createElement("img");
+        this.deleteButton.addEventListener('click', (e) => this.deleteEntry(e));
+        //Call all the methods to initialize entry
+        this.labelElements();
+        this.appendElements();
+        this.populateElements();
+    }
+
+    //Add style classes to all the elements
+    labelElements(){
+        this.container.classList.add('flex-container', 'cart-entry');
+        this.productThumbnail.classList.add('cart-thumbnail');
+        this.textContainer.classList.add('cart-text-container');
+        this.productTitle.classList.add('cart-product-title')
+        this.price.classList.add('item-price');
+        this.quantity.classList.add('quantity');
+        this.finalPrice.classList.add('cart-final-price');
+        this.deleteButton.classList.add('cart-delete-btn');
+    }
+    //organize them before pushing to client screen
+    appendElements(){
+        //TODO: add all the elements in their respective posiitons in the tree
+        //go inwards outwards
+    }
+    //Add text/image content to elements
+    populateElements(){
+        //TODO: Add the text content of the images
+    }
+
+    //Push to DOM
+    appendEntry(){
+
+    }
+    //Delete Entry from the list
+    deleteEntry(){
+
+    }
+}
+
+//Database Entry in place of a server
+const productObject = {
+    productID:1,
+    brandName:"Sneaker Company",
+    productName:"Fall Limited Edition Sneakers",
+    price:250.00,
+    discount:0.5,
+    description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer."
+}
