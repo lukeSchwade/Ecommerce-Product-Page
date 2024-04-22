@@ -45,6 +45,7 @@ const getCurrentTotal = () => {
 }
 const addCartBtn = document.querySelector(".cart-btn");
 
+//Add number of items to cart and add cart entry
 addCartBtn.addEventListener("click", () => {    
     //move the number of items to cart
     addToCart(parseInt(currentOrderQuantity.textContent));
@@ -94,20 +95,24 @@ const removeDollarSignAndMakeNumber = (input) => {
     //This doesnt work in countries where currency sign is a suffix
     return parseFloat(input.substring(1));
 }
-//Add an entry to the cart
-const addToCart = (quantity, itemNum) => {
+//create an entry for the cart
+let cartEntries = [];
+//Array for storing all the cart entries
+const addToCart = (quantity) => {
+    //Create new cart entry obj with ID matched to length of array and
+    if (quantity > 0) {
+        cartEntries.push(new cartEntry(cartEntries.length, quantity))
 
+    }
 }
-//Map of Cart Entries and associated entry number to keep track of them
-const cartEntries = new Map();
 
 //Creating a separate object for each product in cart
 class cartEntry {
     //default constructor
     //Creates all necessary elements for a cart entry.
-    constructor(entry){
-        //Set Entry number
-        this.entryNumber = entry;
+    constructor(entryNumber, quantity){
+        //TODO THIS DOESNT WORK
+        this.entryNum = entryNumber.toString;
         //Create and store list tag
         this.container = document.createElement("li");
         //Create Product Thumbnail
@@ -131,11 +136,13 @@ class cartEntry {
         this.labelElements();
         this.appendElements();
         this.populateElements();
+        this.appendEntry();
     }
 
-    //Add style classes to all the elements
+    //Add corresponding style classes to all the elements
     labelElements(){
-        this.container.classList.add('flex-container', 'cart-entry');
+        //TODO FIX ENTRY NUMBER SHENANIGANS
+        this.container.classList.add('flex-container', 'cart-entry', `${this.entryNum}`);
         this.productThumbnail.classList.add('cart-thumbnail');
         this.textContainer.classList.add('cart-text-container');
         this.productTitle.classList.add('cart-product-title')
@@ -146,30 +153,41 @@ class cartEntry {
     }
     //organize them before pushing to client screen
     appendElements(){
-        //TODO: add all the elements in their respective posiitons in the tree
+        //TODO: add all the elements in their respective positions in the tree
         //go inwards outwards
+        this.priceContentDiv.append(this.price, this.quantity, this.finalPrice);
+        this.textContainer.append(this.productTitle,this.priceContentDiv);
+        this.container.append(this.productThumbnail, this.textContainer);
     }
     //Add text/image content to elements
     populateElements(){
-        //TODO: Add the text content of the images
+        this.productThumbnail.setAttribute("src", "./assets/images/image-product-1-thumbnail.jpg");
+        this.productTitle.textContent = DBProductEntry.productName;
+        this.price.textContent = DBProductEntry.calcFinalPrice;
+        this.quantity.textContent = this.quantity.toString;
+
+        //TODO: Add the text content and images of the elements
     }
 
     //Push to DOM
     appendEntry(){
-
+        cartList.appendChild(this.container);
     }
-    //Delete Entry from the list
+    //Delete this Entry from the list
     deleteEntry(){
+        cartEntries.splice(entryNumber, 1);
+        cartList.removeChild(document.querySelector(this.entryNum));
 
     }
 }
 
 //Database Entry in place of a server
-const productObject = {
+const DBProductEntry = {
     productID:1,
     brandName:"Sneaker Company",
     productName:"Fall Limited Edition Sneakers",
     price:250.00,
     discount:0.5,
+    calcFinalPrice:125.00,
     description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer."
 }
