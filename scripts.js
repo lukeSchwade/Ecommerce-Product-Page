@@ -70,7 +70,6 @@ shopCart.addEventListener("mouseover", () =>{
 });
 
 const checkCartEmpty = () => {
-    console.log("checkcartEmpty");
     // if cart is empty and has the tag, remove hidden tag from 'cart empty' msg
     //and hide checkout button
     if (cartList.childElementCount == 0 && cartEmpty.classList.contains("hide")) {
@@ -101,7 +100,8 @@ let cartEntries = [];
 const addToCart = (quantity) => {
     //Create new cart entry obj with ID matched to length of array and
     if (quantity > 0) {
-        cartEntries.push(new cartEntry(cartEntries.length, quantity))
+        //cartEntries.push(new cartEntry(cartEntries.length, quantity))
+        new cartEntry(0, quantity);
 
     }
 }
@@ -110,7 +110,7 @@ const addToCart = (quantity) => {
 class cartEntry {
     //default constructor
     //Creates all necessary elements for a cart entry.
-    constructor(entryNumber, quantity){
+    constructor(entryNumber, numItems){
         //TODO THIS DOESNT WORK
         this.entryNum = entryNumber.toString;
         //Create and store list tag
@@ -135,14 +135,13 @@ class cartEntry {
         //Call all the methods to initialize entry
         this.labelElements();
         this.appendElements();
-        this.populateElements();
+        this.populateElements(numItems);
         this.appendEntry();
     }
 
     //Add corresponding style classes to all the elements
     labelElements(){
-        //TODO FIX ENTRY NUMBER SHENANIGANS
-        this.container.classList.add('flex-container', 'cart-entry', `${this.entryNum}`);
+        this.container.classList.add('flex-container', 'cart-entry');
         this.productThumbnail.classList.add('cart-thumbnail');
         this.textContainer.classList.add('cart-text-container');
         this.productTitle.classList.add('cart-product-title')
@@ -153,30 +152,35 @@ class cartEntry {
     }
     //organize them before pushing to client screen
     appendElements(){
-        //TODO: add all the elements in their respective positions in the tree
-        //go inwards outwards
+        //Appends all the elements in the branch, outwards
         this.priceContentDiv.append(this.price, this.quantity, this.finalPrice);
         this.textContainer.append(this.productTitle,this.priceContentDiv);
-        this.container.append(this.productThumbnail, this.textContainer);
+        this.container.append(this.productThumbnail, this.textContainer, this.deleteButton);
     }
     //Add text/image content to elements
-    populateElements(){
+    populateElements(numItems){
         this.productThumbnail.setAttribute("src", "./assets/images/image-product-1-thumbnail.jpg");
         this.productTitle.textContent = DBProductEntry.productName;
         this.price.textContent = DBProductEntry.calcFinalPrice;
-        this.quantity.textContent = this.quantity.toString;
-
-        //TODO: Add the text content and images of the elements
+        this.quantity.textContent = numItems;
+        this.finalPrice.textContent = (DBProductEntry.calcFinalPrice * parseInt(numItems));
+        this.deleteButton.setAttribute("src", "./assets/images/icon-delete.svg");
     }
-
+// 
     //Push to DOM
     appendEntry(){
         cartList.appendChild(this.container);
     }
     //Delete this Entry from the list
     deleteEntry(){
-        cartEntries.splice(entryNumber, 1);
-        cartList.removeChild(document.querySelector(this.entryNum));
+        console.log("Delete Entry");
+        //cartEntries.splice(entryNumber, 1);
+        //Delete DOM branch
+        cartList.removeChild(this.container);
+        //Refresh cart check
+        checkCartEmpty();
+        document.querySelector("button.shop-menu-btn").focus();
+
 
     }
 }

@@ -120,12 +120,26 @@ ul {
     margin: 0 1em;    
 }
 
-
 .cart-product-title {
     margin-top: 0;
     margin-bottom: 0.5em;
 }
 
+
+.item-price::before{
+    content: "$";
+}
+.item-price {
+    margin-right: 8px;
+}
+
+.quantity::before {
+    content: "x ";
+}
+
+.cart-final-price::before {
+    content: "$";
+}
 .cart-final-price{
     margin-left: 1em;
     font-weight: 700;
