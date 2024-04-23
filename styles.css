@@ -103,6 +103,10 @@ ul {
   margin-left: -1em;
 }
 
+.cart-entry {
+  margin-bottom: 0.5em;
+}
+
 .cart-thumbnail {
   width: 18%;
   height: 18%;
