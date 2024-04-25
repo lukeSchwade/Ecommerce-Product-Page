@@ -81,7 +81,41 @@
         <img class="thumbnail image-4" src="./assets/images/image-product-4-thumbnail.jpg" alt="image 4">
       </div>
     </div>
-
+    <!-- Lightbox -->
+    <div id="Lightbox" class="modal">
+      <span class="close pointer" onclick="closeLightbox()">&times;</span>
+      <div class="modal-content">
+        <div class="slide">
+            <img src="./assets/images/image-product-1.jpg" class="image-slide" alt="shoes" />
+        </div>https
+        <div class="slide">
+            <img src="./assets/images/image-product-2.jpg" class="image-slide" alt="shoes" />
+        </div>    
+        <div class="slide">
+            <img src="./assets/images/image-product-3.jpg" class="image-slide" alt="shoes" />
+        </div>
+        <div class="slide">
+            <img src="./assets/images/image-product-4.jpg" class="image-slide" alt="shoes" />
+        </div>      
+        <a class="previous" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        <div class="lightbox-thumbnails">
+          <div class="col">
+            <img src="./assets/images/image-product-1-thumbnail.jpg" class="modal-preview hover-shadow" onclick="toSlide(1)" alt="shoes" />
+          </div>
+          <div class="col">
+            <img src="./assets/images/image-product-2-thumbnail.jpg" class="modal-preview hover-shadow" onclick="toSlide(2)" alt="shoes" />
+          </div>
+          <div class="col">
+            <img src="./assets/images/image-product-3-thumbnail.jpg" class="modal-preview hover-shadow" onclick="toSlide(3)" alt="shoes" />
+          </div>
+          <div class="col">
+            <img src="./assets/images/image-product-4-thumbnail.jpg" class="modal-preview hover-shadow" onclick="toSlide(4)" alt="shoes" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Lightbox ends -->
     <div class="infotainer">
           <h1 class="company-name">Sneaker Company</h1>
           <h2 class="product-title">Fall Limited Edition Sneakers</h2>

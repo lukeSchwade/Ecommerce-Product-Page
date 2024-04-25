@@ -195,3 +195,58 @@ const DBProductEntry = {
     calcFinalPrice:125.00,
     description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer."
 }
+
+//MEDIA QUERIES
+let checkUserDesktop = window.matchMedia("(min-width: 767px)").matches;
+//LIGHTBOX CODE
+
+let slideIndex = 1;
+showSlide(slideIndex);
+//Assign an event handler to main image and each thumbnail
+document.querySelectorAll('.thumbnail').forEach((el) => {
+    addEventListener('click', (e) => onClickLightbox(e));
+});
+//Add listener to 
+document.querySelector('.main-image').addEventListener('click', (e) => onClickLightbox(e));
+
+//handle onClick
+const onClickLightbox = (e){
+    //Open Lightbox (only if on Desktop)
+    if (checkUserDesktop) {
+    openLightbox;
+    //Determine which frame was clicked on
+    //Shift to that frame
+    }
+}
+
+
+//Open the Lightbox
+const openLightbox = () => {
+        document.getElementById("lightbox").style.display = 'block';
+}
+// Close lightbox
+const closeLightbox = () => {
+    document.getElementById("lightbox").style.display = 'none';
+}
+
+//change slide
+const changeSlide = (n) => {
+    showSlide(slideIndex += n);
+}
+
+//Assign slide (when initially clicking on it)
+const toSlide = (n) => {
+    showSlide(slideIndex = n);
+}
+
+//Lightbox logic
+const showSlide = (n) => {
+    const slides = document.getElementsByClassName('slide');
+}
+
+//If user clicks anywhere except on the Modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+      closeLightbox();
+    }
+  }
