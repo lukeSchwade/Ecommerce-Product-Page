@@ -201,7 +201,6 @@ let checkUserDesktop = window.matchMedia("(min-width: 767px)").matches;
 //LIGHTBOX CODE
 
 let slideIndex = 1;
-showSlide(slideIndex);
 //Assign an event handler to main image and each thumbnail
 document.querySelectorAll('.thumbnail').forEach((el) => {
     addEventListener('click', (e) => onClickLightbox(e));
@@ -210,10 +209,10 @@ document.querySelectorAll('.thumbnail').forEach((el) => {
 document.querySelector('.main-image').addEventListener('click', (e) => onClickLightbox(e));
 
 //handle onClick
-const onClickLightbox = (e){
+const onClickLightbox = (e) => {
     //Open Lightbox (only if on Desktop)
     if (checkUserDesktop) {
-    openLightbox;
+    openLightbox();
     //Determine which frame was clicked on
     //Shift to that frame
     }
@@ -242,11 +241,34 @@ const toSlide = (n) => {
 //Lightbox logic
 const showSlide = (n) => {
     const slides = document.getElementsByClassName('slide');
-}
+    let modalPreviews = document.getElementsByClassName('modal-preview');
+  
+    if (n > slides.length) {
+      slideIndex = 1;	
+    };
+    
+    if (n < 1) {
+      slideIndex = slides.length;
+    };
+  
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    };
+    
+    for (let i = 0; i < modalPreviews.length; i++) {
+      modalPreviews[i].className = modalPreviews[i].className.replace(' active', '');
+    };
+    
+    slides[slideIndex - 1].style.display = 'block';
+    modalPreviews[slideIndex - 1].className += ' active';
+};
+
 
 //If user clicks anywhere except on the Modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target == document.querySelector('.modal')) {
       closeLightbox();
     }
   }
+
+  showSlide(slideIndex);
