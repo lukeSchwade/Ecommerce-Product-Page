@@ -73,26 +73,26 @@
 <main>
   <div class="main-container flex-container">
     <div class="gallery-wrapper flex-container">
-      <img class="main-image"src="./assets/images/image-product-1.jpg" alt="product image" width="400" height="400">
+      <img id="main-image" class="main-image"src="./assets/images/image-product-1.jpg" alt="product image" width="400" height="400">
       <div class="thumbnail-wrapper flex-container">
-        <img class="thumbnail image-1 selected-image" src="./assets/images/image-product-1-thumbnail.jpg" alt="image 1">
-        <img class="thumbnail image-2" src="./assets/images/image-product-2-thumbnail.jpg" alt="image 2">
-        <img class="thumbnail image-3" src="./assets/images/image-product-3-thumbnail.jpg" alt="image 3">
-        <img class="thumbnail image-4" src="./assets/images/image-product-4-thumbnail.jpg" alt="image 4">
+        <img class="thumbnail image-1 selected-image" src="./assets/images/image-product-1-thumbnail.jpg" alt="image1">
+        <img class="thumbnail image-2" src="./assets/images/image-product-2-thumbnail.jpg" alt="image2">
+        <img class="thumbnail image-3" src="./assets/images/image-product-3-thumbnail.jpg" alt="image3">
+        <img class="thumbnail image-4" src="./assets/images/image-product-4-thumbnail.jpg" alt="image4">
       </div>
     </div>
     <!-- Lightbox -->
     <div id="lightbox" class="modal">
-      <span class="close pointer" onclick="closeLightbox()">&times;</span>
+      <span class="close pointer">&times;</span>
       <div class="modal-content">
         <div class="slide">
-            <img src="./assets/images/image-product-1.jpg" class="image-slide to-slide" alt="shoes1" />
-        </div>https
+            <img src="./assets/images/image-product-1.jpg" class="image-slide to-slide image-1" alt="shoes1" />
+        </div>
         <div class="slide">
-            <img src="./assets/images/image-product-2.jpg" class="image-slide to-slide" alt="shoes2" />
+            <img src="./assets/images/image-product-2.jpg" class="image-slide to-slide image-2" alt="shoes2" />
         </div>    
         <div class="slide">
-            <img src="./assets/images/image-product-3.jpg" class="image-slide to-slide" alt="shoes3" />
+            <img src="./assets/images/image-product-3.jpg" class="image-slide to-slide image-3" alt="shoes3" />
         </div>
         <div class="slide">
             <img src="./assets/images/image-product-4.jpg" class="image-slide to-slide" alt="shoes4" />
@@ -101,16 +101,16 @@
         <a class="next">&#10095;</a>
         <div class="lightbox-thumbnails">
           <div class="col">
-            <img src="./assets/images/image-product-1-thumbnail.jpg" class="modal-preview hover-shadow to-slide" onclick="toSlide(1)" alt="shoes" />
+            <img src="./assets/images/image-product-1-thumbnail.jpg" class="modal-preview hover-shadow to-slide" alt="shoes1" />
           </div>
           <div class="col">
-            <img src="./assets/images/image-product-2-thumbnail.jpg" class="modal-preview hover-shadow to-slide" onclick="toSlide(2)" alt="shoes" />
+            <img src="./assets/images/image-product-2-thumbnail.jpg" class="modal-preview hover-shadow to-slide" alt="shoes2" />
           </div>
           <div class="col">
-            <img src="./assets/images/image-product-3-thumbnail.jpg" class="modal-preview hover-shadow to-slide" onclick="toSlide(3)" alt="shoes" />
+            <img src="./assets/images/image-product-3-thumbnail.jpg" class="modal-preview hover-shadow to-slide" alt="shoes3" />
           </div>
           <div class="col">
-            <img src="./assets/images/image-product-4-thumbnail.jpg" class="modal-preview hover-shadow to-slide" onclick="toSlide(4)" alt="shoes" />
+            <img src="./assets/images/image-product-4-thumbnail.jpg" class="modal-preview hover-shadow to-slide" alt="shoes4" />
           </div>
         </div>
       </div>

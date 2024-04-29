@@ -214,7 +214,7 @@ class Lightbox {
         //store slides
         this.slides = lightboxEl.getElementsByClassName('slide');
         //store mini-previews
-        this.modalPreviews = lightboxEl.getElementsByClassName('modal-preview');
+        this.modalPreviews = lightboxEl.querySelectorAll('.modal-preview');
         //Store open state and slideIndex
         this.slideIndex = 1;
         this.isOpen = false;
@@ -226,20 +226,17 @@ class Lightbox {
             thumbnail.addEventListener('click', (e) => this.refocusMainImage(e));
         });
         //Add event listener for closing lightbox
-        lightboxEl.querySelector('.close').addEventListener('click', (e) => this.closeLightbox(e));
+        lightboxEl.querySelector('.close').addEventListener('click', () => this.closeLightbox());
         //Event listener for left and right bumpers
-        this.lightbox.querySelector('.previous').addEventListener('click', this.changeSlide(-1));
-        this.lightbox.querySelector('.next').addEventListener('click', this.changeSlide(1));
-        //Listeners for modal previews
-        // this.thumbnails.forEach(function(thumbnail, index) {
-        //     thumbnail.addEventListener('click', function(index) {
-        //         return function(e) {
-        //             console.log(e.target);
-        //             console.log(index +1);
-        //         }
-
-        //     }(index));
-        // });
+        this.lightbox.querySelector('.previous').addEventListener('click', () => this.changeSlide(-1));
+        this.lightbox.querySelector('.next').addEventListener('click', () => this.changeSlide(1));
+        //Switch images when you click on lightbox image
+        this.modalPreviews.forEach((modalPreview) => {
+                modalPreview.addEventListener('click', (e) => this.toSlide(extractNum(e.target.alt)));
+                    //Switch to slide, based on the thumbnails
+                    
+               
+        });
     }
 
     //handle onClicks for lightbox
@@ -247,8 +244,9 @@ class Lightbox {
         //Open Lightbox if on Desktop and it's not open already
         if (!this.isOpen && checkUserDesktop) {
             this.openLightbox();
-            //Check if Target is thumbnail or modal
         }
+        //Switch to slide of main Image
+        this.showSlide(this.slideIndex);
         //Check if it's a modal or thumbnail then run toSlide
         if (e.target.classList.contains('to-slide')){
             //switch slide to clicked Thumbnail    
@@ -267,9 +265,10 @@ class Lightbox {
         let imageNum = extractNum(e.target.className);
         let newSrc = `./assets/images/image-product-${imageNum}.jpg`;
         this.mainImage.src = newSrc;
+        this.slideIndex = imageNum;
     }
     //Open the Lightbox
-    openLightbox(n) {
+    openLightbox() {
         this.lightbox.style.display = 'block';
         this.isOpen = true;
 
@@ -287,13 +286,14 @@ class Lightbox {
 
     //jump to slide(when initially clicking on it)
     toSlide (n) {
-        showSlide(this.slideIndex = n);
+        this.showSlide(this.slideIndex = n);
     }
 
     //Lightbox logic
-    showSlide (n){
-        //const slides = document.getElementsByClassName('slide');
-        //let modalPreviews = document.getElementsByClassName('modal-preview');
+    showSlide (n){        
+        //DO not remove Important
+        n = parseInt(n);
+
         //Catch overflows to go back to beginning
         if (n > this.slides.length) {
         this.slideIndex = 1;	
@@ -317,12 +317,6 @@ class Lightbox {
     //If user clicks anywhere except on the Modal, close it
 
     //this.showSlide(this.slideIndex);
-
-    // window.onclick = function(event) {
-    //     if (event.target == this.lightbox) {
-    //     closeLightbox();
-    //     }
-    // }
 
 }
 
