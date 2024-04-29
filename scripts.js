@@ -196,11 +196,8 @@ const DBProductEntry = {
     description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer."
 }
 
-//MEDIA QUERIES
-let checkUserDesktop = window.matchMedia("(min-width: 767px)").matches;
-//LIGHTBOX CODE
 
-//Create an object for each Lightbox (only one for now)
+//LIGHTBOX CODE
 class Lightbox {
     constructor(el, lightboxEl){
         //store gallery container
@@ -242,7 +239,8 @@ class Lightbox {
     //handle onClicks for lightbox
     onClickLightbox(e, n = 1) {
         //Open Lightbox if on Desktop and it's not open already
-        if (!this.isOpen && checkUserDesktop) {
+
+        if (!this.isOpen && window.matchMedia("(min-width: 767px)").matches) {
             this.openLightbox();
         }
         //Switch to slide of main Image
