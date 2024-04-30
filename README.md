@@ -33,11 +33,10 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Desktop](./design/final-submission-desktop.png)
+![mobile](./design/final-submission-mobile.png)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
 
 
 ### Links
@@ -61,8 +60,10 @@ Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to t
 - How to create icons and use them as a fontsheet (NOT A FAN)
 - How to import fonts online via google's font API (You don't need to declare font face when importing as it's already done)
 - How to create an object associated with each item in the cart that stores important keys and has associated eventlisteners
-- Dropdown menu implimentation in CSS
-- 
+- Dropdown menu implementation in CSS
+- Implementation of a gallery lightbox using JS
+- You can use Chrome Devtools to create a live-expression which is incredible for bugfixing and keeping track of variables
+- The horrors of weakly typed languages
 
 ### Continued development
 
