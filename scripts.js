@@ -291,7 +291,7 @@ class Lightbox {
     showSlide (n){        
         //DO not remove Important
         n = parseInt(n);
-
+        this.slideIndex = parseInt(this.slideIndex);
         //Catch overflows to go back to beginning
         if (n > this.slides.length) {
         this.slideIndex = 1;	
