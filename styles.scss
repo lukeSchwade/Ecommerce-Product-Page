@@ -110,8 +110,8 @@ ul {
     margin-left: -1em;
 }
 
-.cart-entry {
-    margin-bottom: 0.5em;
+.cart-entry:not(:first-child) {
+    margin-top:12px;
 }
 
 .cart-thumbnail{
@@ -172,11 +172,8 @@ top: 2px;
 
 .cart-checkout-btn-wrapper{
     width: 100%;
-    margin: 0.5em 0;
     overflow: hidden;
     padding: 8px;
-
-
 }
 //Animation for hiding cart 
 .header-box>div:hover .dropdown-cart, 
@@ -348,7 +345,7 @@ top: 2px;
 }
 
 .hover-glow:hover {
-    filter: brightness(150%);
+    filter: brightness(115%);
 }
 
 //Lightbox PC Modal Code

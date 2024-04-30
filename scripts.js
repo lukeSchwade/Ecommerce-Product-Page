@@ -2,14 +2,6 @@
 // const closeNavButton = document.querySelector("#close-nav-btn");
 const sideNav = document.getElementById("side-nav-bar");
 
-// openNavButton.addEventListener("click", () => {
-//     openNav();
-// });
-
-// closeNavButton.addEventListener("click", () => {
-//     closeNav();
-// })
-
 const closeNav = () => {
     sideNav.classList.add("hidden-nav");
 }
@@ -88,7 +80,6 @@ const animateCart = () => {
 //TODO
 }
 
-
 const removeDollarSignAndMakeNumber = (input) => {
     //Convert to String (just in case)
     //This doesnt work in countries where currency sign is a suffix
@@ -102,7 +93,6 @@ const addToCart = (quantity) => {
     if (quantity > 0) {
         //cartEntries.push(new cartEntry(cartEntries.length, quantity))
         new cartEntry(0, quantity);
-
     }
 }
 
@@ -180,10 +170,9 @@ class cartEntry {
         //Refresh cart check
         checkCartEmpty();
         document.querySelector("button.shop-menu-btn").focus();
-
-
     }
 }
+
 
 //Database Entry in place of a server
 const DBProductEntry = {
@@ -195,7 +184,6 @@ const DBProductEntry = {
     calcFinalPrice:125.00,
     description: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer."
 }
-
 
 //LIGHTBOX CODE
 class Lightbox {
@@ -230,16 +218,13 @@ class Lightbox {
         //Switch images when you click on lightbox image
         this.modalPreviews.forEach((modalPreview) => {
                 modalPreview.addEventListener('click', (e) => this.toSlide(extractNum(e.target.alt)));
-                    //Switch to slide, based on the thumbnails
-                    
-               
+                    //Switch to slide, based on the thumbnails      
         });
     }
 
     //handle onClicks for lightbox
     onClickLightbox(e, n = 1) {
         //Open Lightbox if on Desktop and it's not open already
-
         if (!this.isOpen && window.matchMedia("(min-width: 767px)").matches) {
             this.openLightbox();
         }
@@ -250,7 +235,6 @@ class Lightbox {
             //switch slide to clicked Thumbnail    
             this.toSlide(n);
         }
-        
     }
     //Handle Changing Main Image
     refocusMainImage(e) {
@@ -269,7 +253,7 @@ class Lightbox {
     openLightbox() {
         this.lightbox.style.display = 'block';
         this.isOpen = true;
-
+        //Add an eventlistener to window so if they click anywhere that's not
 
     }
     // Close lightbox
@@ -312,10 +296,6 @@ class Lightbox {
         this.slides[this.slideIndex - 1].style.display = 'block';
         this.modalPreviews[this.slideIndex - 1].className += ' active';
     }
-    //If user clicks anywhere except on the Modal, close it
-
-    //this.showSlide(this.slideIndex);
-
 }
 
 //Pull Number from theclass name
